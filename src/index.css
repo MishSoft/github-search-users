@@ -1,9 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Space+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Space+Mono&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+
+:root {
+  --light-body-background: #f6f8ff;
+  --light-header-title-color: #222731;
+  --light-header-mode-color: #697c9a;
+  --light-username-color: #2b3442;
+  --light-user-join-color: #697c9a;
+  --light-user-bio-color: #4b6a9b;
+  --light-user-followers-background: #f6f8ff;
+  --light-input-background: #fefefe;
+
+  --dark-body-background: #141d2f;
+  --dark-header-title-color: #fff;
+  --dark-header-mode-color: #fff;
+  --dark-username-color: #fff;
+  --dark-user-join-color: #fff;
+  --dark-user-bio-color: #fff;
+  --dark-user-followers-background: #141d2f;
+
+  --search-button-background: #0079ff;
+  --search-button-hover-background: #60abff;
+  --white: #fff;
+  --no-result: #f74646;
 }
 
 body {
@@ -11,5 +36,91 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
+}
+
+.board {
+  width: 730px;
+}
+
+.title-mode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-mode h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--light-header-title-color);
+}
+
+.mode-component {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mode-component span {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--light-header-mode-color);
+}
+
+.mode-component img {
+  margin-left: 16px;
+}
+
+#inputField {
+  margin-top: 20px;
+  position: relative;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  background-color: var(--light-input-background);
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+}
+
+#inputField input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-left: 60px;
+  left: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 15px;
+  z-index: 0;
+  border: none;
+  color: var(--light-header-title-color);
+  transition: all 0.2s ease;
+}
+
+#inputField input:focus {
+  border: 2px solid var(--search-button-hover-background);
+}
+
+#inputField button {
+  width: 106px;
+  height: 50px;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  background-color: var(--search-button-background);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#inputField button:hover {
+  background-color: var(--search-button-hover-background);
 }

@@ -1,5 +1,12 @@
+import Header from "./components/Header/Header";
+
 function App() {
-  return <div>Soon..!</div>;
+  return (
+    <div className="board">
+      <Header/>
+      {/* UserBoard */}
+    </div>
+  );
 }
 
 export default App;
