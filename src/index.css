@@ -37,6 +37,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Space Mono", monospace;
+  background-color: var(--light-body-background);
 }
 
 .board {
@@ -115,7 +116,7 @@ body {
   border: none;
   background-color: var(--search-button-background);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
   z-index: 2;
   font-size: 16px;
   font-weight: 700;
@@ -123,4 +124,113 @@ body {
 
 #inputField button:hover {
   background-color: var(--search-button-hover-background);
+}
+
+.user-board {
+  display: flex;
+  margin-top: 24px;
+  padding: 48px;
+  border-radius: 15px;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+  background-color: var(--light-input-background);
+}
+
+.image-section img {
+  width: 117px;
+  height: 117px;
+}
+
+.user-section-middle,
+.user-section-footer {
+  margin-left: 37px;
+  display: flex;
+  margin-bottom: 37px;
+}
+
+.user-section-header {
+  margin-left: 37px;
+  margin-bottom: 37px;
+}
+
+.user-section-left {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+}
+
+.name-username h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--light-username-color);
+}
+
+.name-username a {
+  color: var(--search-button-background);
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.user-section-left h3 {
+  color: var(--light-user-join-color);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+.user-section-header p {
+  margin-top: 20px;
+  color: var(--light-user-bio-color); 
+  opacity: 0.75;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+.user-section-middle {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--light-user-followers-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 17px 32px;
+}
+
+.repo, .followers,.following {
+  color: var(--light-user-bio-color);
+  font-family: Space Mono;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.repo h3, .followers h3, .following h3 {
+  color: var(--light-username-color);
+  font-family: Space Mono;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.user-section-footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  justify-content: space-between;
+  grid-template-columns: auto auto;
+  grid-template-rows: 3em 2em ;
+}
+
+.location, .social, .link, .company {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--light-user-bio-color);
+  font-size: 15px;
+  font-weight: 400;
 }
