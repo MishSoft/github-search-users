@@ -1,11 +1,21 @@
 import { motion } from "framer-motion";
 import searchIcon from "/public/assets/icon-search.svg";
+import { useThemeContext } from "../../../context/context";
 
-function InputField() {
+function InputField({ setValue, onSethandleValue, onSetHandleInputValue }) {
+  const { theme } = useThemeContext();
   return (
-    <form id="inputField">
+    <form
+      onSubmit={onSethandleValue}
+      className={`inputField ${theme ? "dark" : ""}`}
+    >
       <img src={searchIcon} alt="search icon" />
-      <input type="text" placeholder="Search GitHub username…" />
+      <input
+        onChange={onSetHandleInputValue}
+        type="text"
+        placeholder="Search GitHub username…"
+        value={setValue}
+      />
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

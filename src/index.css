@@ -24,6 +24,7 @@
   --dark-user-join-color: #fff;
   --dark-user-bio-color: #fff;
   --dark-user-followers-background: #141d2f;
+  --dark-input-background: #1e2a47;
 
   --search-button-background: #0079ff;
   --search-button-hover-background: #60abff;
@@ -74,7 +75,7 @@ body {
   margin-left: 16px;
 }
 
-#inputField {
+.inputField {
   margin-top: 20px;
   position: relative;
   padding: 15px 20px;
@@ -86,7 +87,7 @@ body {
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
 }
 
-#inputField input {
+.inputField input {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -104,11 +105,11 @@ body {
   transition: all 0.2s ease;
 }
 
-#inputField input:focus {
+.inputField input:focus {
   border: 2px solid var(--search-button-hover-background);
 }
 
-#inputField button {
+.inputField button {
   width: 106px;
   height: 50px;
   color: var(--white);
@@ -122,7 +123,7 @@ body {
   font-weight: 700;
 }
 
-#inputField button:hover {
+.inputField button:hover {
   background-color: var(--search-button-hover-background);
 }
 
@@ -177,15 +178,13 @@ body {
   font-weight: 400;
 }
 
-
 .user-section-header p {
   margin-top: 20px;
-  color: var(--light-user-bio-color); 
+  color: var(--light-user-bio-color);
   opacity: 0.75;
   font-size: 15px;
   font-weight: 400;
 }
-
 
 .user-section-middle {
   width: 100%;
@@ -197,40 +196,91 @@ body {
   padding: 17px 32px;
 }
 
-.repo, .followers,.following {
+.repo,
+.followers,
+.following {
   color: var(--light-user-bio-color);
-  font-family: Space Mono;
   font-size: 13px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
 
-.repo h3, .followers h3, .following h3 {
+.repo h3,
+.followers h3,
+.following h3 {
   color: var(--light-username-color);
-  font-family: Space Mono;
   font-size: 22px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   text-transform: uppercase;
 }
 
 .user-section-footer {
   width: 100%;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
   margin-bottom: 0;
   justify-content: space-between;
   grid-template-columns: auto auto;
-  grid-template-rows: 3em 2em ;
+  grid-template-rows: 3em 2em;
 }
 
-.location, .social, .link, .company {
+.location,
+.social,
+.link,
+.company {
   display: flex;
   align-items: center;
   gap: 10px;
   color: var(--light-user-bio-color);
   font-size: 15px;
   font-weight: 400;
+}
+
+.link a {
+  text-decoration: none;
+}
+
+body.dark {
+  background-color: var(--dark-body-background);
+}
+
+.title-mode h1.dark {
+  color: var(--dark-header-title-color);
+}
+
+.inputField.dark {
+  background-color: var(--dark-input-background);
+}
+
+.inputField.dark input,
+.inputField.dark input::placeholder {
+  color: var(--dark-header-title-color);
+}
+
+.user-board.dark,
+.user-section-middle.dark {
+  background-color: var(--dark-input-background);
+}
+
+.user-section-header.dark .user-section-left .name-username h2,
+.user-section-middle.dark .repo,
+.user-section-middle.dark .followers,
+.user-section-middle.dark .following,
+.user-section-middle.dark .repo h3,
+.user-section-middle.dark .followers h3,
+.user-section-middle.dark .following h3,
+.user-section-header.dark p {
+  color: var(--dark-header-title-color);
+}
+
+.user-section-header.dark p {
+  color: var(--dark-user-bio-color);
+}
+
+.user-section-footer.dark .location,
+.user-section-footer.dark .social,
+.user-section-footer.dark .link,
+.user-section-footer.dark .link a,
+.user-section-footer.dark .company {
+  color: var(--dark-header-title-color);
+  text-decoration: none;
 }

@@ -1,26 +1,27 @@
-// import React from 'react'
-import locationIcon from "/public/assets/icon-location.svg";
-import socialIcon from "/public/assets/icon-twitter.svg";
-import linkIcon from "/public/assets/icon-website.svg";
-import companyIcon from "/public/assets/icon-company.svg";
-function UserFooter() {
+import { useThemeContext } from "../../../context/context";
+import LocationsIcon from "./Icons/LocationsIcon";
+import SocialIcon from "./Icons/SocialIcon";
+import LinkIcon from "./Icons/LinkIcon";
+import ComapnyIcon from "./Icons/ComapnyIcon";
+function UserFooter({ getLocation, getSocialLink, getSocialName, getWebsiteName, getWebsiteLink, getCompany }) {
+  const { theme } = useThemeContext();
   return (
-    <div className="user-section-footer">
+    <div className={`user-section-footer ${theme ? "dark" : ""}`}>
       <div className="location">
-        <img src={locationIcon} />
-        Tbilisi
+        <LocationsIcon theme={theme} />
+        {getLocation}
       </div>
       <div className="social">
-        <img src={socialIcon} />
-        Not Available
+        <SocialIcon theme={theme} />
+        <a href={getSocialLink}>{getSocialName}</a>
       </div>
       <div className="link">
-        <img src={linkIcon} />
-        <a href="#">Link</a>
+        <LinkIcon theme={theme} />
+        <a href={getWebsiteLink}>{getWebsiteName}</a>
       </div>
       <div className="company">
-        <img href={companyIcon} />
-        Company
+        <ComapnyIcon theme={theme}/>
+        {getCompany}
       </div>
     </div>
   );

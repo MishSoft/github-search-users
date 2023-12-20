@@ -1,18 +1,21 @@
 // import React from 'react'
 
-function UserHeader() {
+import { useThemeContext } from "../../../context/context";
+
+function UserHeader({ getName, getUserName, getJoinedTime, getBio }) {
+  const { theme } = useThemeContext();
   return (
-    <div className="user-section-header">
-        <div className="user-section-left">
-            <div className="name-username">
-                <h2>Misho</h2>
-                <a href="#">Link</a>
-            </div>
-            <h3>Joined 25 Jan 2011</h3>
+    <div className={`user-section-header ${theme ? "dark" : ""}`}>
+      <div className="user-section-left">
+        <div className="name-username">
+          <h2>{getName}</h2>
+          <a href="#">{getUserName}</a>
         </div>
-        <p>This profile has no bio</p>
+        <h3>{getJoinedTime}</h3>
+      </div>
+      <p>{getBio}</p>
     </div>
-  )
+  );
 }
 
-export default UserHeader
+export default UserHeader;
