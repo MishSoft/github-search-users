@@ -10,15 +10,29 @@ function Header({ setUserData, checkActiveBoard }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (!inputValue) {
+        checkActiveBoard(false);
+        setCaughtError(true);
+
+        setTimeout(() => {
+          setCaughtError(false);
+        }, 1500)
+        return;
+      }
+
       const response = await fetch(
         `https://api.github.com/users/${inputValue}`
       );
       if (!response.ok) {
         setCaughtError(true);
-        checkActiveBoard(true);
-      } else {
         checkActiveBoard(false);
+
+        setTimeout(() => {
+          setCaughtError(false);
+        }, 1500)
+      } else {
         setCaughtError(false);
+        checkActiveBoard(true);
       }
       const data = await response.json();
       setUserData(data);
@@ -33,7 +47,7 @@ function Header({ setUserData, checkActiveBoard }) {
 
   const { theme } = useThemeContext();
   return (
-    <div className='header-component-header'>
+    <div className="header-component-header">
       <div className="title-mode">
         <h1 className={theme ? "dark" : ""}>devfinder</h1>
         <Mode />
@@ -42,7 +56,7 @@ function Header({ setUserData, checkActiveBoard }) {
         value={inputValue}
         onSethandleValue={handleSubmit}
         onSetHandleInputValue={handleInputValue}
-        setCaughtError={caughtError}
+        caughtError={caughtError}
       />
     </div>
   );

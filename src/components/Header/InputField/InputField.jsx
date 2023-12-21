@@ -2,12 +2,19 @@ import { motion } from "framer-motion";
 import searchIcon from "/public/assets/icon-search.svg";
 import { useThemeContext } from "../../../context/context";
 
-function InputField({ setValue, onSethandleValue, onSetHandleInputValue, setCaughtError }) {
+function InputField({
+  setValue,
+  onSethandleValue,
+  onSetHandleInputValue,
+  caughtError,
+}) {
   const { theme } = useThemeContext();
   return (
     <form
       onSubmit={onSethandleValue}
-      className={`inputField ${setCaughtError ? "errorInput" : ""} ${theme ? "dark" : ""}`}
+      className={`inputField ${caughtError ? "errorInput" : ""} ${
+        theme ? "dark" : ""
+      }`}
     >
       <img src={searchIcon} alt="search icon" />
       <input
@@ -16,7 +23,7 @@ function InputField({ setValue, onSethandleValue, onSetHandleInputValue, setCaug
         placeholder="Search GitHub username…"
         value={setValue}
       />
-      <span className={setCaughtError ? "error-message" : ""}>No results</span>
+      <span className={caughtError ? "error-message" : ""}>No results</span>
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
