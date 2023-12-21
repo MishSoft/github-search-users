@@ -3,7 +3,13 @@ import LocationsIcon from "./Icons/LocationsIcon";
 import SocialIcon from "./Icons/SocialIcon";
 import LinkIcon from "./Icons/LinkIcon";
 import ComapnyIcon from "./Icons/ComapnyIcon";
-function UserFooter({ getLocation, getSocialLink, getSocialName, getWebsiteName, getWebsiteLink, getCompany }) {
+function UserFooter({
+  getLocation,
+  getSocialName,
+  getWebsiteName,
+  getWebsiteLink,
+  getCompany,
+}) {
   const { theme } = useThemeContext();
   return (
     <div className={`user-section-footer ${theme ? "dark" : ""}`}>
@@ -13,15 +19,17 @@ function UserFooter({ getLocation, getSocialLink, getSocialName, getWebsiteName,
       </div>
       <div className="social">
         <SocialIcon theme={theme} />
-        <a href={getSocialLink}>{getSocialName}</a>
+        {getSocialName === null ? "Not Available" : getSocialName}
       </div>
       <div className="link">
         <LinkIcon theme={theme} />
-        <a href={getWebsiteLink}>{getWebsiteName}</a>
+        <a href={getWebsiteLink === null ? "#" : getWebsiteLink}>
+          {getWebsiteName === null ? "Not Available" : getWebsiteName}
+        </a>
       </div>
       <div className="company">
-        <ComapnyIcon theme={theme}/>
-        {getCompany}
+        <ComapnyIcon theme={theme} />
+        {getCompany === null ? "Not Available" : getCompany}
       </div>
     </div>
   );

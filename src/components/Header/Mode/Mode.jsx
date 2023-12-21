@@ -11,7 +11,7 @@ function Mode() {
   }
 
   return (
-    <div className="mode-component" onClick={toggleTheme}>
+    <div className={`mode-component ${theme ? "dark" : ""}`} onClick={toggleTheme}>
       <span>{theme ? "Light" : "Dark"}</span>
       <img src={theme ? sunIcon : moonIcon} alt="mode-image" />
     </div>

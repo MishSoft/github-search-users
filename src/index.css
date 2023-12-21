@@ -32,6 +32,7 @@
   --no-result: #f74646;
 }
 
+
 body {
   min-height: 100vh;
   display: flex;
@@ -41,8 +42,12 @@ body {
   background-color: var(--light-body-background);
 }
 
-.board {
-  width: 730px;
+.container {
+  width: 100%;
+}
+
+.header-component-header {
+  width: 100%;
 }
 
 .title-mode {
@@ -52,7 +57,7 @@ body {
 }
 
 .title-mode h1 {
-  font-size: 26px;
+  font-size: 2em;
   font-weight: 700;
   color: var(--light-header-title-color);
 }
@@ -85,6 +90,34 @@ body {
   border-radius: 15px;
   background-color: var(--light-input-background);
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+}
+
+.inputField span {
+  position: absolute;
+  right: 25%;
+  color: var(--no-result);
+  font-weight: 700;
+  display: none;
+}
+
+.errorInput {
+  animation: vibration 0.2s ease inherit;
+}
+
+.error-message {
+  display: block;
+}
+
+@keyframes vibration {
+  0% {
+    transform: translateX(30px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .inputField input {
@@ -154,9 +187,8 @@ body {
 }
 
 .user-section-left {
-  width: 100%;
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
 }
 
 .name-username h1 {
@@ -176,6 +208,7 @@ body {
   color: var(--light-user-join-color);
   font-size: 15px;
   font-weight: 400;
+  padding-top: 10px;
 }
 
 .user-section-header p {
@@ -187,12 +220,12 @@ body {
 }
 
 .user-section-middle {
-  width: 100%;
+ 
   border-radius: 10px;
-  background: var(--light-user-followers-background);
+  background-color: var(--light-user-followers-background);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  gap: 50px;
   padding: 17px 32px;
 }
 
@@ -214,7 +247,6 @@ body {
 }
 
 .user-section-footer {
-  width: 100%;
   display: grid;
   flex-wrap: wrap;
   margin-bottom: 0;
@@ -247,6 +279,10 @@ body.dark {
   color: var(--dark-header-title-color);
 }
 
+.mode-component.dark span {
+  color: var(--dark-header-mode-color);
+}
+
 .inputField.dark {
   background-color: var(--dark-input-background);
 }
@@ -256,9 +292,12 @@ body.dark {
   color: var(--dark-header-title-color);
 }
 
-.user-board.dark,
-.user-section-middle.dark {
+.user-board.dark {
   background-color: var(--dark-input-background);
+}
+
+.user-section-middle.dark {
+  background-color: var(--dark-body-background);
 }
 
 .user-section-header.dark .user-section-left .name-username h2,
@@ -283,4 +322,12 @@ body.dark {
 .user-section-footer.dark .company {
   color: var(--dark-header-title-color);
   text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .board {
+    max-width: 100%;
+  }
 }
