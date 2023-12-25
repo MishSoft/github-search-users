@@ -189,7 +189,7 @@ body {
 
 .user-section-middle,
 .user-section-footer {
- width: 100%;
+  width: 100%;
   margin-left: 37px;
   margin-right: 37px;
   display: flex;
@@ -376,7 +376,8 @@ body.dark {
     flex-direction: column;
   }
 
-  .user-section-middle, .user-section-footer {
+  .user-section-middle,
+  .user-section-footer {
     margin: 0;
     margin-top: 20px;
   }
