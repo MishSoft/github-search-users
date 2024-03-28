@@ -39,6 +39,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: var(--light-body-background);
+  overflow-x: hidden;
 }
 
 .container {
